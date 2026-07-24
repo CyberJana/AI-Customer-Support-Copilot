@@ -1,57 +1,67 @@
 # 🤖 AI Customer Support Copilot
 
-An AI-powered customer support assistant that helps businesses answer customer questions using company knowledge, documents, and previous conversations. It combines Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), and ticket management into one intelligent platform.
+An AI-powered customer support assistant that answers customer queries using company documents, knowledge bases, and previous conversations. Built with **React**, **FastAPI**, **PostgreSQL**, **OpenAI/Llama 3**, and **Qdrant** using **Retrieval-Augmented Generation (RAG)**.
+
+![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql)
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- 💬 AI-powered customer support chatbot
-- 📄 PDF & document search using RAG
-- 🔍 Semantic search with Qdrant
-- 🎫 Automatic support ticket creation
-- 👨‍💼 Human agent handoff
-- 🌍 Multi-language support
-- 📊 Analytics dashboard
-- 🔐 Secure authentication
-- 📚 Conversation history
-- ⚡ Fast API responses
-- 🐳 Docker deployment
-
----
-
-## 🛠 Tech Stack
-
-### Frontend
-- React
-- Tailwind CSS
-- Axios
-
-### Backend
-- FastAPI
-- Python
-- PostgreSQL
-- SQLAlchemy
-- JWT Authentication
-
-### AI & Vector Database
-- OpenAI GPT-4 / GPT-4o
-- Llama 3
-- LangChain
-- Qdrant
-- Sentence Transformers
-
-### DevOps
-- Docker
-- Docker Compose
-- GitHub
-- Nginx (Optional)
+- 💬 AI-powered Customer Support Chatbot
+- 📄 PDF & Document Search (RAG)
+- 🔍 Semantic Search with Qdrant
+- 🎫 Support Ticket Creation
+- 👨‍💼 Human Agent Handoff
+- 🌍 Multi-language Support
+- 📊 Analytics Dashboard
+- 🔐 Secure Authentication
+- 📚 Conversation History
+- 🐳 Docker Deployment
 
 ---
 
-## 📂 Project Structure
+# 🏗️ Architecture
 
 ```
+                 Customer
+                     │
+                     ▼
+             React Frontend
+                     │
+                     ▼
+             FastAPI Backend
+        ┌──────────┼──────────┐
+        │          │          │
+        ▼          ▼          ▼
+    OpenAI      Qdrant    PostgreSQL
+    Llama 3   Vector DB    Database
+```
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Frontend | React, Tailwind CSS |
+| Backend | FastAPI, Python |
+| Database | PostgreSQL |
+| AI | OpenAI API / Llama 3 |
+| Vector Database | Qdrant |
+| RAG | LangChain |
+| Deployment | Docker |
+
+---
+
+# 📂 Project Structure
+
+```text
 ai-customer-support-copilot/
 │
 ├── frontend/
@@ -63,8 +73,8 @@ ai-customer-support-copilot/
 │   ├── app/
 │   ├── api/
 │   ├── services/
-│   ├── models/
 │   ├── database/
+│   ├── models/
 │   ├── requirements.txt
 │   └── main.py
 │
@@ -76,35 +86,37 @@ ai-customer-support-copilot/
 
 ---
 
-## ⚙ Installation
+# 🚀 Installation
 
-### Clone Repository
+## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/ai-customer-support-copilot.git
+git clone https://github.com/CyberJana/ai-customer-support-copilot.git
 
 cd ai-customer-support-copilot
 ```
 
 ---
 
-### Backend
+## Backend Setup
 
 ```bash
 cd backend
 
 python -m venv venv
 
-source venv/bin/activate
 # Windows
 venv\Scripts\activate
+
+# Linux/macOS
+source venv/bin/activate
 
 pip install -r requirements.txt
 ```
 
 ---
 
-### Frontend
+## Frontend Setup
 
 ```bash
 cd frontend
@@ -116,12 +128,12 @@ npm run dev
 
 ---
 
-## Environment Variables
+# 🔐 Environment Variables
 
-Create a `.env` file.
+Create a `.env` file inside the backend directory.
 
 ```env
-OPENAI_API_KEY=your_api_key
+OPENAI_API_KEY=your_openai_api_key
 
 DATABASE_URL=postgresql://username:password@localhost/support_db
 
@@ -132,7 +144,7 @@ JWT_SECRET=your_secret_key
 
 ---
 
-## Docker
+# 🐳 Docker
 
 ```bash
 docker-compose up --build
@@ -140,97 +152,93 @@ docker-compose up --build
 
 ---
 
-## Workflow
-
-```
-Customer
-    │
-    ▼
-React Frontend
-    │
-    ▼
-FastAPI Backend
-    │
-    ├── OpenAI / Llama 3
-    ├── Qdrant Vector Database
-    ├── PostgreSQL
-    └── Support Ticket System
-```
-
----
-
-## Screenshots
-
-### Chat Interface
-
-(Add Screenshot)
-
-### Analytics Dashboard
-
-(Add Screenshot)
-
-### Ticket Management
-
-(Add Screenshot)
-
----
-
-## Future Improvements
-
-- Voice chatbot
-- WhatsApp integration
-- Email automation
-- CRM integration
-- Sentiment analysis
-- AI agent memory
-- Auto ticket prioritization
-- Live translation
-- Mobile application
-
----
-
-## Security
-
-- JWT Authentication
-- Role-based Access Control
-- HTTPS Support
-- Rate Limiting
-- Input Validation
-- Secure API Keys
-
----
-
-## API Endpoints
+# 📡 API Endpoints
 
 | Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | /chat | Chat with AI |
-| POST | /upload | Upload documents |
-| GET | /documents | List documents |
-| POST | /ticket | Create support ticket |
-| GET | /tickets | View tickets |
-| GET | /analytics | Dashboard analytics |
+|--------|----------|-------------|
+| POST | `/chat` | Chat with AI |
+| POST | `/upload` | Upload Documents |
+| GET | `/documents` | List Documents |
+| POST | `/ticket` | Create Support Ticket |
+| GET | `/tickets` | View Tickets |
+| GET | `/analytics` | Analytics Dashboard |
 
 ---
 
-## Author
+# 📊 Workflow
+
+1. Customer asks a question.
+2. FastAPI receives the request.
+3. Relevant documents are retrieved from Qdrant.
+4. OpenAI/Llama 3 generates an answer using RAG.
+5. Response is returned to the user.
+6. If unresolved, a support ticket is created and routed to a human agent.
+
+---
+
+# 📸 Screenshots
+
+## Chat Interface
+
+> Add screenshot here
+
+---
+
+## Analytics Dashboard
+
+> Add screenshot here
+
+---
+
+## Ticket Management
+
+> Add screenshot here
+
+---
+
+# 🚀 Future Roadmap
+
+- 🎙️ Voice Assistant
+- 📱 WhatsApp Integration
+- 📧 Email Automation
+- 🤖 AI Agent Memory
+- 😊 Sentiment Analysis
+- 🌐 Live Translation
+- 📈 Customer Satisfaction Prediction
+- 🔔 Smart Notifications
+- 📲 Mobile Application
+
+---
+
+# 🔒 Security
+
+- JWT Authentication
+- HTTPS Support
+- Role-Based Access Control
+- Rate Limiting
+- API Key Protection
+- Secure Password Hashing
+
+---
+
+# 👨‍💻 Author
 
 **Janarthanan A**
 
-M.Sc. Information Security & Digital Forensics
+🎓 M.Sc. Information Security & Digital Forensics
 
-AI • Cyber Security • Digital Forensics
-
-GitHub: https://github.com/yourusername
-
-LinkedIn: https://linkedin.com/in/yourprofile
+🐙 GitHub: https://github.com/CyberJana
 
 ---
 
-## License
+# 📄 License
 
-MIT License
+This project is licensed under the **MIT License**.
 
 ---
 
-⭐ If you like this project, please give it a star on GitHub!
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub!
+
+**Repository:** https://github.com/CyberJana/ai-customer-support-copilot
